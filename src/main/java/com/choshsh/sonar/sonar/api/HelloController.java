@@ -10,13 +10,22 @@ import reactor.core.publisher.Flux;
 @RestController
 public class HelloController {
 
+    private HelloController(){}
+
     @GetMapping("/hello")
-    Flux<String> hello() {
+    private Flux<String> hello() {
         return Flux.just("Hello", "World");
     }
 
     @GetMapping("/user")
     ResponseEntity<Person> test() {
+        String foodSecond;
+        try {
+            foodSecond = "피자";
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         Person person = new Person();
         person.setName("ethan");
         person.setFavoriteFood("햄버거");
