@@ -13,7 +13,7 @@ public class HelloController {
     private HelloController(){}
 
     @GetMapping("/hello")
-    private Flux<String> hello() {
+    Flux<String> hello() {
         return Flux.just("Hello", "World");
     }
 
