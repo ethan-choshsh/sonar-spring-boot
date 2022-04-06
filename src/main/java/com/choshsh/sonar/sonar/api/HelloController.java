@@ -1,12 +1,14 @@
 package com.choshsh.sonar.sonar.api;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+@Slf4j
 @RestController
 public class HelloController {
 
@@ -23,7 +25,7 @@ public class HelloController {
         try {
             foodSecond = "피자";
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            log.warn("음식 이름 설정 오류 : {}", e.getMessage());
         }
 
         Person person = new Person();
