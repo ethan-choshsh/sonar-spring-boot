@@ -17,16 +17,16 @@ public class HelloController {
 
     @GetMapping("/user")
     Mono<ResponseEntity<Person>> test() {
+        Person person = new Person();
         String foodSecond;
         try {
             foodSecond = "피자";
+
+            person.setName("ethan");
+            person.setFavoriteFood("햄버거");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        Person person = new Person();
-        person.setName("ethan");
-        person.setFavoriteFood("햄버거");
 
         return Mono.just(
                 ResponseEntity
