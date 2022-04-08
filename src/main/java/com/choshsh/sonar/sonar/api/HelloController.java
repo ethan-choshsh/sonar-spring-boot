@@ -18,9 +18,8 @@ public class HelloController {
     @GetMapping("/user")
     Mono<ResponseEntity<Person>> test() {
         Person person = new Person();
-        String foodSecond;
         try {
-            foodSecond = "피자";
+            Thread.sleep(1000);
 
             person.setName("ethan");
             person.setFavoriteFood("햄버거");
